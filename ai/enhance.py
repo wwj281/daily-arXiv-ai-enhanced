@@ -118,12 +118,10 @@ def process_single_item(chain, item: Dict, language: str) -> Dict:
     # Default structure with meaningful fallback values
     default_ai_fields = {
         "tldr": "Summary generation failed",
-        "problem": "Problem analysis unavailable",
-        "key_idea": "Key idea extraction failed",
-        "system_method_design": "System or method design analysis unavailable",
-        "experiments": "Experiment analysis unavailable",
-        "why_it_matters": "Significance analysis unavailable",
-        "relevance_to_llm_moe_system_research": "Relevance analysis unavailable",
+        "motivation": "Motivation analysis unavailable",
+        "method": "Method extraction failed",
+        "result": "Result analysis unavailable",
+        "conclusion": "Conclusion extraction failed"
     }
     
     try:
@@ -169,14 +167,7 @@ def process_single_item(chain, item: Dict, language: str) -> Dict:
 
 def process_all_items(data: List[Dict], model_name: str, language: str, max_workers: int) -> List[Dict]:
     """并行处理所有数据项"""
-    llm = ChatOpenAI(
-        model=model_name,
-        extra_body={
-            "thinking": {
-                "type": "disabled"
-            }
-        },
-    ).with_structured_output(Structure, method="function_calling")
+    llm = ChatOpenAI(model=model_name).with_structured_output(Structure, method="function_calling")
     print('Connect to:', model_name, file=sys.stderr)
     
     prompt_template = ChatPromptTemplate.from_messages([
@@ -211,12 +202,10 @@ def process_all_items(data: List[Dict], model_name: str, language: str, max_work
                 processed_data[idx] = data[idx]
                 processed_data[idx]['AI'] = {
                     "tldr": "Processing failed",
-                    "problem": "Processing failed",
-                    "key_idea": "Processing failed",
-                    "system_method_design": "Processing failed",
-                    "experiments": "Processing failed",
-                    "why_it_matters": "Processing failed",
-                    "relevance_to_llm_moe_system_research": "Processing failed",
+                    "motivation": "Processing failed",
+                    "method": "Processing failed",
+                    "result": "Processing failed",
+                    "conclusion": "Processing failed"
                 }
     
     return processed_data

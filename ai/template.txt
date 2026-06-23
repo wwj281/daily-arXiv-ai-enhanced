@@ -1,6 +1,4 @@
-Please analyze the following arXiv paper abstract.
+Please analyze the following abstract of papers. 
 
-Only use information from the abstract. Be concise but informative.
-
-Abstract:
+Content:
 {content}

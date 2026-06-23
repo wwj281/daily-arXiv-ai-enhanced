@@ -47,15 +47,7 @@ if __name__ == "__main__":
                     continue
                 
                 # Check if all required AI fields are present
-                required_fields = [
-                    'tldr',
-                    'problem',
-                    'key_idea',
-                    'system_method_design',
-                    'experiments',
-                    'why_it_matters',
-                    'relevance_to_llm_moe_system_research',
-                ]
+                required_fields = ['tldr', 'motivation', 'method', 'result', 'conclusion']
                 if not all(field in ai_data for field in required_fields):
                     print(f"Skipping item '{item.get('title', 'Unknown')}' due to incomplete AI fields")
                     continue
@@ -67,14 +59,10 @@ if __name__ == "__main__":
                         summary=item["summary"],
                         url=item['abs'],
                         tldr=ai_data.get('tldr', ''),
-                        problem=ai_data.get('problem', ''),
-                        key_idea=ai_data.get('key_idea', ''),
-                        system_method_design=ai_data.get('system_method_design', ''),
-                        experiments=ai_data.get('experiments', ''),
-                        why_it_matters=ai_data.get('why_it_matters', ''),
-                        relevance_to_llm_moe_system_research=ai_data.get(
-                            'relevance_to_llm_moe_system_research', ''
-                        ),
+                        motivation=ai_data.get('motivation', ''),
+                        method=ai_data.get('method', ''),
+                        result=ai_data.get('result', ''),
+                        conclusion=ai_data.get('conclusion', ''),
                         cate=item['categories'][0],
                         idx=next(idx)
                     )
