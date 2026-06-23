@@ -1,21 +1,35 @@
 ### [{idx}] [{title}]({url})
+
 *{authors}*
 
-Main category: {cate}
+Main category: `{cate}`
 
-TL;DR: {tldr}
+**TL;DR:** {tldr}
 
+#### Problem
 
-<details>
-  <summary>Details</summary>
-Motivation: {motivation}
+{problem}
 
-Method: {method}
+#### Key Idea
 
-Result: {result}
+{key_idea}
 
-Conclusion: {conclusion}
+#### System/Method Design
 
-Abstract: {summary}
+{system_method_design}
 
-</details>
+#### Experiments
+
+{experiments}
+
+#### Why It Matters
+
+{why_it_matters}
+
+#### Relevance to LLM/MoE/System Research
+
+{relevance_to_llm_moe_system_research}
+
+#### Abstract
+
+{summary}
